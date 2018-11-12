@@ -1,0 +1,27 @@
+{% extends "template.html" %}
+
+{% block title %}User administration{% endblock title %}
+
+{% block page_content %}
+    <h1>User {{user.first_name}}</h1>
+    <a class="btn btn-primary" href="/users" role="button">Go to list</a>
+    <a class="btn btn-primary" href="/user/edit/{{user.email}}" role="button">Edit user</a>
+    <table class="table table-borderless">
+         <thead>
+            <tr>
+                <th scope="col">First name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Age</th>
+            </tr>
+         </thead>
+         <tbody>
+         {% if user %}
+             <tr>
+                 <td>{{ user.first_name }} </td>
+                 <td>{{ user.email }}</td>
+                 <td>{{ user.age }}</td>
+             </tr>
+         {% endif %}
+         </tbody>
+    </table>
+{% endblock page_content %}
